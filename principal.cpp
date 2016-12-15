@@ -4,13 +4,12 @@
 using namespace std;
 
 int main(){
-    testa_dados();
-    ler_cidades();
+    testa_dados();//verifica o arquivo de pré-processamento e o cria caso necessário
+    ler_cidades();//carrega as cidades de dados.csv na memoria
     int op;
     do{ //repetição até informar para sair do programa
         op = menu();
-        if (op == 1){
-            //funcionalidade 1
+        if (op == 1){//funcionalidade 1
             int cep1, cep2, p_cidade1, p_cidade2;
             ler_ceps(&cep1, &cep2);
             //consultar CEP ------ informar caso não exista o CEP
@@ -20,7 +19,7 @@ int main(){
             } else{
                 cout << "ERROR: CEP(s) inválido(s)!\n";
             }
-        } else if (op == 2){ //funcionalidade 2
+        } else if (op == 2){//funcionalidade 2
             cout << "Informe o nome do arquivo[\"cidades.txt\"]: ";
             string arq;
             fstream arquivo;
@@ -54,7 +53,7 @@ int main(){
                     }
                 }
                 distancias.close();
-                cout << "Arquivo criado com sucesso!\n";
+                cout << "Arquivo criado com sucesso![\"distancias.txt\"]\n";
             } else{
                 cout << "ERROR: Arquivo inválido!\n";
             }

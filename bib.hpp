@@ -177,6 +177,14 @@ bool valida_arq(string arq, fstream* arquivo){ //verifica se o arquivo existe e 
     if (arquivo->fail()){
         return false;
     } else{
-        return arquivo->good();
+       string linha;
+       getline(*arquivo, linha);
+       if (linha == ""){
+           return false;
+       } else{
+           arquivo->close();
+           arquivo->open(arq, ios::in);
+           return true;
+       }
     }
 }
